@@ -4,6 +4,20 @@ import json
 from .models import Todo
 
 
+def view_todo(request, id):
+    todo = None
+    try:
+        todo = Todo.objects.get(id=id)
+    except Exception as e:
+        print(e)
+    # context = {"id": todo.id, "title": todo.title}
+    # return HttpResponse(
+    # json.dumps(context, ensure_ascii=False), content_type="application/json"
+    # )
+
+    return render(request, "todo/view-todo.html", {"todo": todo})
+
+
 def todolist(request):
     todos = Todo.objects.all()
 
@@ -11,8 +25,6 @@ def todolist(request):
 
 
 # Create your views here.
-
-
 def index(request):
     return HttpResponse("<h1>Hello django!</h1>")
 

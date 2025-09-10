@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+    <title>單一事項</title>
     <style>
         .todo {
             background-color: aqua;
@@ -17,17 +17,17 @@
 </head>
 
 <body>
-    <h1>TodoList</h1>
-    {% for todo in todos %}
+    <h1>Todo</h1>
     <div class="todo">
-        <h5>{{todo.created}}</h5>
-        <a href="{% url 'viewtodo' todo.id %}">
-            <h2>{{todo.title}}</h2>
-        </a>
+        {% if todo %}
+        <h4>{{todo.created}}</h4>
+        <h3>{{todo.title}}</h3>
         <p>{{todo.text}}</p>
         <u>{{todo.important}}</u>
+        {% else %}
+        <h2>無此代辦事項</h2>
+        {% endif %}
     </div>
-    {% endfor %}
 </body>
 
 </html>
