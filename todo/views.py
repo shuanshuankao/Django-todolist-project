@@ -19,6 +19,17 @@ def create_todo(request):
     return render(request, "todo/create-todo.html", {"message": message, "form": form})
 
 
+def delete_todo(request, id):
+    # 檢視目前
+    try:
+        todo = Todo.objects.get(id=id)
+        todo.delete()
+    except Exception as e:
+        print(e)
+
+    return redirect("todolist")
+
+
 def view_todo(request, id):
     message = ""
     # 檢視目前
@@ -42,8 +53,9 @@ def view_todo(request, id):
         else:
             todo.date_completed = None
 
-        form.save()
+        todo.save()
         message = "更新成功 !"
+        return redirect("todolist")
     return render(
         request, "todo/view-todo.html", {"todo": todo, "form": form, "message": message}
     )
