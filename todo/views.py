@@ -12,7 +12,11 @@ def create_todo(request):
     # POST
     if request.method == "POST":
         form = CreateTodoForm(request.POST)
-        form.save()
+        # 缺少綁定 user
+        todo = form.save(commit=False)
+        todo.user = request.user
+        todo.save()
+
         message = "建立成功 !"
         return redirect("todolist")
 
