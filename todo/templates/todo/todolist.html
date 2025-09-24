@@ -28,6 +28,9 @@
     {% endif %}
 
     <h1>TodoList</h1>
+    {% if not todos %}
+    <h2>無代辦事項，請先新增或登入</h2>
+    {% endif %}
 
     {% for todo in todos %}
     <div class="todo">
