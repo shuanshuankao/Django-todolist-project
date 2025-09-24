@@ -4,24 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>建立代辦事項</title>
-    <style>
-        textarea {
-            height: 200px;
-            display: block;
-            width: 210px;
-        }
-    </style>
+    <title>註冊頁面</title>
 </head>
 
 <body>
-    <h1>Create Todo</h1>
+    <h1>Register</h1>
     <form action="" method="POST">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">提交</button>
+        {{form.as_p}}
+        <button type="submit">註冊</button>
     </form>
     {{message}}
+
 </body>
 
 </html>
