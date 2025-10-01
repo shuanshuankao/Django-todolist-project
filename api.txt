@@ -1,0 +1,29 @@
+1. pip install djangorestframework
+
+2. setting.py
+- 註冊 "rest_framework"
+
+3. 產生新APP
+- python manage.py startapp api
+
+4. setting.py
+- 註冊 "api.apps.ApiConfig"
+
+5. api/
+- 新增 serializers.py
+- 建立json序列化類別 TodoSerializers
+
+6. api/views.py
+-新增 TodoViewSet api 視圖類別
+-使用 TodoSerializers
+-建立查詢方式
+
+7. 新增路由器 routers
+- urls.py
+router = DefaultRouter()
+router.register(r"todos", TodoViewSet, basename="todo")
+urlpatterns = [path("api/", include("router.urls"))]
+
+8. 主 url.py
+- include => api/urls.py
+- path("",include("api.urls")),
