@@ -31,7 +31,7 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = "django-insecure-y_d84dz6ex0e*12bd5w5oqguaz6r2^1(shd#4o!xur^)2$ir3%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "django-todolist-project-yzlm.onrender.com"]
 
